@@ -26,6 +26,12 @@ async function main () {
     .then(() => db.get('all'))
     .then((value) => console.log(value))
 
+  // Handle event logging
+  db.events.on('ready', () => console.log('Database ready'))
+  db.events.on('replicated', () => console.log('Database replicated'))
+  db.events.on('write', () => console.log('Database written'))
+  db.events.on('replicate.progress', () => console.log('Database replication in progress'))
+
   // Log address of the new database
   const address = db.address.toString()
   console.log(address)
