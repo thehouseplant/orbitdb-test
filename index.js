@@ -18,7 +18,13 @@ async function main () {
   }
 
   // Create database instance
-  const db = await orbitdb.docstore('docstore.test', options)
+  const db = await orbitdb.docstore('docstore.test', { indexBy: 'doc' })
+
+  // Insert and fetch test documents
+  db.put({ _id: 'Hello world', doc: 'Test document 1'})
+    .then(() => db.put({ _id: 'Hello universe ', doc: 'Test document 2' }))
+    .then(() => db.get('all'))
+    .then((value) => console.log(value))
 
   // Log address of the new database
   const address = db.address.toString()
