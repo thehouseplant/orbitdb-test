@@ -2,12 +2,15 @@ const IPFS = require('ipfs')
 const OrbitDB = require('orbit-db')
 
 async function main () {
-  // Initialize IPFS
+  // Create IPFS instance
   const ipfsOptions = { repo : './ipfs' }
   const ipfs = await IPFS.create(ipfsOptions)
 
-  // Initialize OrbitDB
+  // Create OrbitDB instance
   const orbitdb = await OrbitDB.createInstance(ipfs)
+
+  // Create database instance
+  const db = await orbitdb.docs('test.docs.database')
 }
 
 main()
