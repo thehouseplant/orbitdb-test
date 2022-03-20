@@ -18,7 +18,7 @@ async function main () {
   }
 
   // Create database instance
-  const db = await orbitdb.docs('test.docs.database', options)
+  const db = await orbitdb.docstore('docstore.test', options)
 
   // Log address of the new database
   const address = db.address.toString()
