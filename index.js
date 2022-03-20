@@ -13,7 +13,12 @@ async function main () {
   const db = await orbitdb.docs('test.docs.database')
 
   // Log address of the new database
-  console.log(db.address.toString())
+  const address = db.address.toString()
+  console.log(address)
+
+  // Log full identity of the new database
+  const identity = db.identity
+  console.log(identity.toJSON())
 }
 
 main()
