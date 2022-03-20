@@ -9,8 +9,16 @@ async function main () {
   // Create OrbitDB instance
   const orbitdb = await OrbitDB.createInstance(ipfs)
 
+  // Define new database options
+  const options = {
+    // Give write access to ourselves
+    accessController: {
+      write: [orbitdb.identity.id]
+    }
+  }
+
   // Create database instance
-  const db = await orbitdb.docs('test.docs.database')
+  const db = await orbitdb.docs('test.docs.database', options)
 
   // Log address of the new database
   const address = db.address.toString()
