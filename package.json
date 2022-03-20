@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/thehouseplant/orbitdb-test/issues"
   },
-  "homepage": "https://github.com/thehouseplant/orbitdb-test#readme"
+  "homepage": "https://github.com/thehouseplant/orbitdb-test#readme",
+  "dependencies": {
+    "ipfs": "^0.62.1",
+    "orbit-db": "^0.28.3"
+  }
 }
